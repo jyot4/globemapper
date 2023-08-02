@@ -1,11 +1,11 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.main{
+.main {
     height: 100vh;
     background-color: rgb(121, 27, 27);
     display: flex;
@@ -14,24 +14,30 @@
 }
 
 
-.country{
- width: 50%;
- height: 400px;
- padding: 60px;
- background-color:blanchedalmond;
- color:rgb(121, 27, 27);
- box-shadow: 5px 8px 16px black;
- border-radius: 8px;
- 
+.country {
+    width: 50%;
+    height: 50%;
+    padding: 60px;
+    margin: 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: blanchedalmond;
+    color: rgb(121, 27, 27);
+    box-shadow: 5px 8px 16px rgb(165, 64, 64);
+    border-radius: 8px;
+
 }
 
-select{
+select {
     padding: 0.5rem;
     font-size: 15px;
-    margin-left:0.5rem;
+    margin: 0.5rem;
     border-radius: 10px;
-    
+
 }
+
 h1 {
     font-size: 60px;
     text-align: center;
@@ -39,9 +45,51 @@ h1 {
 }
 
 
-.option{
+.option {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
+
+@media all and (max-width: 900px) {
+
+    /* .country{width: 500px; }  */
+    h1 {
+        font-size: 50px;
+    }
+}
+
+@media all and (max-width: 790px) {
+    .country {
+        width: 70%;
+    }
+
+    h1 {
+        font-size: 50px;
+    }
+}
+
+@media all and (max-width: 550px) {
+    .country {
+        width:80%;
+        height: 40%;
+    }
+
+    h1 {
+        font-size: 37px;
+    }
+    select{
+        font-size: 14px;
+    }
+}
+@media all and (max-width: 360px) {
+    .country{width:90%; } 
+    h1{
+       font-size:33px;
+    }  
+    select{
+        font-size: 12px;
+    }
+   }

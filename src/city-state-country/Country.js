@@ -1,6 +1,10 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import './Country.css'
+// import 'bootstrap/dist/css/bootstrap.css';
+// Put any other imports below so that CSS from your
+// components takes precedence over default styles.
+
 
 function Country() {
     // var config = {
@@ -26,11 +30,12 @@ function Country() {
     const [stateSelected ,setstateSelected] = useState("")
 
 
-console.log(selected)
-console.log(stateSelected)
+// console.log(selected)
+// console.log(stateSelected)
 
 
     useEffect(() => {
+        
         axios.get('https://api.countrystatecity.in/v1/countries/', {
             headers: {
                 'X-CSCAPI-KEY': 'TjZNU1M4VDR1UUlVeVNDdFlXMVdBWFIzUGs0Q016eXhPY0F0cUZydA=='
@@ -40,21 +45,25 @@ console.log(stateSelected)
                 // console.log(response.data)
                 setCountry(response.data)
             })
+        
     }, [])
 
     useEffect(() => {
+        if(selected.length > 0 ){
         axios.get(`https://api.countrystatecity.in/v1/countries/${selected}/states`, {
             headers: {
                 'X-CSCAPI-KEY': 'TjZNU1M4VDR1UUlVeVNDdFlXMVdBWFIzUGs0Q016eXhPY0F0cUZydA=='
             }
         })
             .then((datas) => {
-                console.log(datas.data)
+                // console.log(datas.data)
              setState(datas.data)
             })
+        }
     }, [selected])
 
     useEffect(() => {
+        if(selected.length > 0 && stateSelected.length >0){
         axios.get(`https://api.countrystatecity.in/v1/countries/${selected}/states/${stateSelected}/cities`, {
             headers: {
                 'X-CSCAPI-KEY': 'TjZNU1M4VDR1UUlVeVNDdFlXMVdBWFIzUGs0Q016eXhPY0F0cUZydA=='
@@ -64,11 +73,12 @@ console.log(stateSelected)
                 // console.log(city.data)
              setCities(city.data)
             })
+        }
     }, [stateSelected])
     return (
 <>
 
-        <div className='main'>
+        <div className= ' main' >
             <div className='country'>
                 <h1>globeMapper</h1>
                 <div className='option'>
